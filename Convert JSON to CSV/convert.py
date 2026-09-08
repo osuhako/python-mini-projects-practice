@@ -2,7 +2,23 @@ import json
 import csv
  
 filepath = 'test.json'
- 
+
+def json2csv(d):
+    with open(f'{d}') as json_data:
+        data = json.load(json_data)
+
+        output = "output.csv"
+        with open(output, 'w', newline='') as csvfile:
+                    fieldnames = data.keys()
+                    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                   
+                    writer.writeheader()
+                    writer.writerow(data)
+    return output
+
+json2csv(filepath)
+
+'''
 def load_json(d):
     with open(f'{d}') as json_data:
         obt_data = json.load(json_data)
@@ -26,7 +42,7 @@ def main():
     csv_file = filtered_data(data)
     return csv_file
  
-'''
+
 def filter_keys(d):
     data = json.loads(d)
  
