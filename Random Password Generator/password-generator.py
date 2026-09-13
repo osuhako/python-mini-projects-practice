@@ -14,10 +14,16 @@ for i in range(13):
     i+=1
 '''
 #2
+'''
 chars = s.ascii_letters+s.digits+s.punctuation
 def generate_password(length):
     password = ""
     for i in range(length):
         password += r.choice(chars)
     return password
+'''
 
+#3
+chars = s.ascii_letters+s.digits+s.punctuation
+def genarate_password(length):
+    return ''.join(r.choice(chars) for _ in range(length))
